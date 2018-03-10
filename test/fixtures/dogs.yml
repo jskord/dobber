@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  feedings: 1
+  treats: 1
+  walks: 1
+  user: 1
+
+two:
+  feedings: 1
+  treats: 1
+  walks: 1
+  user: 1

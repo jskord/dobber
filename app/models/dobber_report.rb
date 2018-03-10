@@ -1,2 +1,0 @@
-class DobberReport < ApplicationRecord
-end

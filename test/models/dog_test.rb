@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DobberReportTest < ActiveSupport::TestCase
+class DogTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

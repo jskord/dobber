@@ -9,7 +9,7 @@
 <h4> You are not logged in </h4>
 <% end %>
 <% if current_user %>
-  <% if current_user.dog.feedings == nil %>
+  <% if current_user.dog == nil %>
     <h4>You haven't created your Dobber yet!</h4>
     <a href = '/new-dobber'><button>Create your Dobber</button></a>
   <% else %>

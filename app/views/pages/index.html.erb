@@ -9,9 +9,14 @@
 <h4> You are not logged in </h4>
 <% end %>
 <% if current_user %>
-  <% if current_user.dog == nil %>
+  <% if current_user.dog.feedings == nil %>
     <h4>You haven't created your Dobber yet!</h4>
-    <a href = 'create-dobber'><button>Create your Dobber</button></a>
+    <a href = '/new-dobber'><button>Create your Dobber</button></a>
+  <% else %>
+    <h4> Total Feedings given: <%= current_user.dog.feedings %> </h4>
+    <h4> Total Walks given: <%= current_user.dog.walks %> </h4>
+    <h4> Total Treats given: <%= current_user.dog.treats %> </h4> 
+
   <% end %>
 <% end %>
 

@@ -5,15 +5,14 @@ class DogsController < ApplicationController
 
   def create
     dog = Dog.new(
-      user_id: current_user.id,
       feedings: 0,
       treats: 0,
       walks: 0
     )
     dog.save
-    user = current_user
-    user.dog_id = dog.id
-    user.save
+    active_user = current_user
+    active_user.dog_id = dog.id
+    active_user.save
     if dog.save
       redirect_to '/'
     else

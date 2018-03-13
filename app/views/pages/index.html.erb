@@ -14,9 +14,11 @@
     <a href = '/new-dobber'><button>Create your Dobber</button></a>
   <% else %>
     <h4> Total Feedings given: <%= current_user.dog.feedings %> </h4>
+    <a href = '/feed'><button>Feed Dobber</button></a>
     <h4> Total Walks given: <%= current_user.dog.walks %> </h4>
+    <a href='/walk'><button>Walk Dobber</button></a>
     <h4> Total Treats given: <%= current_user.dog.treats %> </h4> 
-
+    <a href='/treat'><button>Give Dobber a Treat</button></a>
   <% end %>
 <% end %>
 

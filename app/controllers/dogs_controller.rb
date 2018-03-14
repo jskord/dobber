@@ -24,15 +24,26 @@ class DogsController < ApplicationController
     active_user = current_user
     dog = active_user.dog
     dog.feedings = dog.feedings + 1
+    dog.last_feeding = Time.now
     dog.save
     render 'feeding.html.erb'
   end
 
   def walk
+    active_user = current_user
+    dog = active_user.dog
+    dog.walks = dog.walks + 1
+    dog.last_feeding = Time.now
+    dog.save
     render 'walk.html.erb'
   end
 
   def treat
+    active_user = current_user
+    dog = active_user.dog
+    dog.treats = dog.treats + 1
+    dog.last_feeding = Time.now
+    dog.save
     render 'treat.html.erb'
   end
 

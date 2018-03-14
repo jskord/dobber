@@ -19,4 +19,17 @@ class DogsController < ApplicationController
       redirect_to '/'
     end
   end
+
+  def feeding
+    render 'feeding.html.erb'
+  end
+
+  def walk
+    render 'walk.html.erb'
+  end
+
+  def treat
+    render 'treat.html.erb'
+  end
+  
 end

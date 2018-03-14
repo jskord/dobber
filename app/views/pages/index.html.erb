@@ -14,10 +14,20 @@
     <a href = '/new-dobber'><button>Create your Dobber</button></a>
   <% else %>
     <h4> Total Feedings given: <%= current_user.dog.feedings %> </h4>
+  <% if current_user.dog.feedings != 0 %>
+    <h4> Last Feeding: <%= distance_of_time_in_words(current_user.dog.last_feeding, Time.now) %> ago</h4>
+  <% end %>
     <a href = '/feed'><button>Feed Dobber</button></a>
     <h4> Total Walks given: <%= current_user.dog.walks %> </h4>
+  <% if current_user.dog.walks != 0 %>
+    <h4> Last Walk: <%= distance_of_time_in_words(current_user.dog.last_walk, Time.now) %> ago</h4>
+  <% end %>
     <a href='/walk'><button>Walk Dobber</button></a>
-    <h4> Total Treats given: <%= current_user.dog.treats %> </h4> 
+    <h4> Total Treats given: <%= current_user.dog.treats %> </h4>
+  <% if current_user.dog.treats != 0 %> 
+    <h4> Last Treat: <%= distance_of_time_in_words(current_user.dog.last_treat, Time.now) %> ago</h4>
+  <% end %>
+
     <a href='/treat'><button>Give Dobber a Treat</button></a>
   <% end %>
 <% end %>

@@ -33,7 +33,7 @@ class DogsController < ApplicationController
     active_user = current_user
     dog = active_user.dog
     dog.walks = dog.walks + 1
-    dog.last_feeding = Time.now
+    dog.last_walk = Time.now
     dog.save
     render 'walk.html.erb'
   end
@@ -42,7 +42,7 @@ class DogsController < ApplicationController
     active_user = current_user
     dog = active_user.dog
     dog.treats = dog.treats + 1
-    dog.last_feeding = Time.now
+    dog.last_treat = Time.now
     dog.save
     render 'treat.html.erb'
   end

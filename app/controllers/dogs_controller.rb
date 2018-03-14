@@ -21,6 +21,10 @@ class DogsController < ApplicationController
   end
 
   def feeding
+    active_user = current_user
+    dog = active_user.dog
+    dog.feedings = dog.feedings + 1
+    dog.save
     render 'feeding.html.erb'
   end
 
@@ -31,5 +35,5 @@ class DogsController < ApplicationController
   def treat
     render 'treat.html.erb'
   end
-  
+
 end

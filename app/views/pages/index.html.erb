@@ -28,35 +28,32 @@
       <% end %>
     <% else %>
       
-      <% if current_user.dog.enough_food? > 3 %>
-        <p>hello world!</p>
-      <% end %>
+      <% if current_user.dog.enough_food? < 24 and current_user.dog.enough_walks? < 12 and current_user.dog.enough_treats? < 12 %>
+        <h4> Your Dobber is Active</h4>
 
-
-
-
-      <h4> Your Dobber is Active</h4>
-      <h4> Total Feedings given: <%= current_user.dog.feedings %> </h4>
-      <% if current_user.dog.feedings != 0 %>
-        <h4> Last Feeding: <%= distance_of_time_in_words(current_user.dog.last_feeding, Time.now) %> ago</h4>
-      <% end %>
+        <p> Total Feedings given: <%= current_user.dog.feedings %> </p>
+        <p> Last Feeding: <%= distance_of_time_in_words(current_user.dog.last_feeding, Time.now) %> ago</p>
         <a href = '/feed'><button>Feed Dobber</button></a>
-        <h4> Total Walks given: <%= current_user.dog.walks %> </h4>
-      <% if current_user.dog.walks != 0 %>
-        <h4> Last Walk: <%= distance_of_time_in_words(current_user.dog.last_walk, Time.now) %> ago</h4>
-      <% end %>
-        <a href='/walk'><button>Walk Dobber</button></a>
-        <h4> Total Treats given: <%= current_user.dog.treats %> </h4>
-      <% if current_user.dog.treats != 0 %> 
-        <h4> Last Treat: <%= distance_of_time_in_words(current_user.dog.last_treat, Time.now) %> ago</h4>
-      <% end %>
-    <a href='/treat'><button>Give Dobber a Treat</button></a>
-    <% end %>
 
-    
+        <p> Total Walks given: <%= current_user.dog.walks %></p>
+        <p> Last Walk: <%= distance_of_time_in_words(current_user.dog.last_walk, Time.now) %> ago</p>
+        <a href='/walk'><button>Walk Dobber</button></a>
+
+        <p> Total Treats given: <%= current_user.dog.treats %> </p>
+        <p> Last Treat: <%= distance_of_time_in_words(current_user.dog.last_treat, Time.now) %> ago</p>
+        <a href='/treat'><button>Give Dobber a Treat</button></a>
+      <% else %>
+        <h1>Your dobber is gone.  You need to take care of your Dobber better!</h1>
+      <% end %>
+
+    <% end %>    
   <% end %>
-<% end %>    
-<% enough_food = current_user.dog.enough_food? %>
+<% end %>  
+
+
+
+  
+
 
 
 

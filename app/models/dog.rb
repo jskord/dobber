@@ -7,19 +7,42 @@ class Dog < ApplicationRecord
     return hours
   end
 
+  def next_feeding?
+    time_difference = Time.current - last_feeding
+    minutes = (time_difference / 1.minute).round
+    hours = (time_difference / 1.hour).round
+    time_left = 12 - hours
+    return time_left
+  end
+
   def enough_walks?
     time_difference = Time.current - last_walk
     minutes = (time_difference / 1.minute).round
     hours = (time_difference / 1.hour).round
     return hours
-    return true
   end
+
+  def next_walk?
+    time_difference = Time.current - last_walk
+    minutes = (time_difference / 1.minute).round
+    hours = (time_difference / 1.hour).round
+    time_left = 12 - hours
+    return time_left
+  end
+
 
   def enough_treats?
     time_difference = Time.current - last_treat
     minutes = (time_difference / 1.minute).round
     hours = (time_difference / 1.hour).round
     return hours
-    return true
+  end
+
+  def next_treat?
+    time_difference = Time.current - last_treat
+    minutes = (time_difference / 1.minute).round
+    hours = (time_difference / 1.hour).round
+    time_left = 12 - hours
+    return time_left
   end
 end

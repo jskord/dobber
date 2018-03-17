@@ -29,25 +29,33 @@
     <% else %>
       
       <% if current_user.dog.enough_food? < 24 and current_user.dog.enough_walks? < 12 and current_user.dog.enough_treats? < 12 %>
-        <h4> Your Dobber is Active</h4>
+        <h2> Your Dobber is Active</h2>
 
-        <p> Total Feedings given: <%= current_user.dog.feedings %> </p>
+        <i><h3> Total Feedings given: <%= current_user.dog.feedings %> </h4></i>
         <p> Last Feeding: <%= distance_of_time_in_words(current_user.dog.last_feeding, Time.now) %> ago</p>
-        <a href = '/feed'><button>Feed Dobber</button></a>
+        <p>You have </p><font color = 'red'><%= current_user.dog.next_feeding? %> hours </font><p>left before you must feed your dobber again</p>
+        <% if current_user.dog.enough_food? > 10 %>
+          <a href = '/feed'><button>Feed Dobber</button></a>
+        <% end %>
 
-        <p> Total Walks given: <%= current_user.dog.walks %></p>
+        <i><h3> Total Walks given: <%= current_user.dog.walks %></h3></i>
         <p> Last Walk: <%= distance_of_time_in_words(current_user.dog.last_walk, Time.now) %> ago</p>
-        <a href='/walk'><button>Walk Dobber</button></a>
+        <p>You have </p><font color = 'red'><%= current_user.dog.next_walk? %> hours </font><p>left before you must walk your dobber again</p>
+        <% if current_user.dog.enough_walks? > 8 %>
+          <a href='/walk'><button>Walk Dobber</button></a>
+        <% end %>
 
-        <p> Total Treats given: <%= current_user.dog.treats %> </p>
+        <i><h3> Total Treats given: <%= current_user.dog.treats %> </h3></i>
         <p> Last Treat: <%= distance_of_time_in_words(current_user.dog.last_treat, Time.now) %> ago</p>
-        <a href='/treat'><button>Give Dobber a Treat</button></a>
+        <p>You have </p><font color = 'red'><%= current_user.dog.next_treat? %> hours </font><p>left before you must give your Dobber another treat</p>
+        <% if current_user.dog.enough_treats? > 8 %>
+          <a href='/treat'><button>Give Dobber a Treat</button></a>
+        <% end %>
       <% else %>
         <h1>Your dobber is gone.  You need to take care of your Dobber better!</h1>
         <img src = 'dobber_sad.jpg' width = '350 px'/>
         <h4>Start a <a href = '/new-dobber'><button>New Dobber</button></a>
       <% end %>
-
     <% end %>    
   <% end %>
 <% end %>  

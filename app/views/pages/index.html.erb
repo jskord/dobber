@@ -30,22 +30,37 @@
       
       <% if current_user.dog.enough_food? < 24 and current_user.dog.enough_walks? < 12 and current_user.dog.enough_treats? < 12 %>
         <h2> Your Dobber is Active</h2>
+        <h3> You have kept your Dobber active for: </h3>
+        <% if current_user.dog.age < 1 %>
+          <h3><i>less than a day</i></h3>
+        <% elsif current_user.dog.age == 1 %>
+          <h3><i> 1 Day</i></h3>
+        <% else %>        
+          <h3><%= current_user.dog.age %> Days </h3>
+        <% end %>
 
-        <i><h3> Total Feedings given: <%= current_user.dog.feedings %> </h4></i>
+        <br>
+
+
+        <i><h4> Total Feedings given: <%= current_user.dog.feedings %> </h4></i>
         <p> Last Feeding: <%= distance_of_time_in_words(current_user.dog.last_feeding, Time.now) %> ago</p>
         <p>You have </p><font color = 'red'><%= current_user.dog.next_feeding? %> hours </font><p>left before you must feed your dobber again</p>
         <% if current_user.dog.enough_food? > 10 %>
           <a href = '/feed'><button>Feed Dobber</button></a>
         <% end %>
 
-        <i><h3> Total Walks given: <%= current_user.dog.walks %></h3></i>
+        <br>
+
+        <i><h4> Total Walks given: <%= current_user.dog.walks %></h4></i>
         <p> Last Walk: <%= distance_of_time_in_words(current_user.dog.last_walk, Time.now) %> ago</p>
         <p>You have </p><font color = 'red'><%= current_user.dog.next_walk? %> hours </font><p>left before you must walk your dobber again</p>
         <% if current_user.dog.enough_walks? > 8 %>
           <a href='/walk'><button>Walk Dobber</button></a>
         <% end %>
 
-        <i><h3> Total Treats given: <%= current_user.dog.treats %> </h3></i>
+        <br>
+
+        <i><h4> Total Treats given: <%= current_user.dog.treats %> </h4></i>
         <p> Last Treat: <%= distance_of_time_in_words(current_user.dog.last_treat, Time.now) %> ago</p>
         <p>You have </p><font color = 'red'><%= current_user.dog.next_treat? %> hours </font><p>left before you must give your Dobber another treat</p>
         <% if current_user.dog.enough_treats? > 8 %>

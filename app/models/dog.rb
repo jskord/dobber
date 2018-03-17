@@ -45,4 +45,12 @@ class Dog < ApplicationRecord
     time_left = 12 - hours
     return time_left
   end
+
+  def age
+    time_difference = Time.current - created_at
+    minutes = (time_difference / 1.minute).round
+    hours = (time_difference / 1.hour).round
+    days = (time_difference / 1.day).round
+    return days
+  end
 end

@@ -66,6 +66,7 @@
         <% if current_user.dog.enough_treats? > 8 %>
           <a href='/treat'><button>Give Dobber a Treat</button></a>
         <% end %>
+        
       <% else %>
         <h1>Your dobber is gone.  You need to take care of your Dobber better!</h1>
         <img src = 'dobber_sad.jpg' width = '350 px'/>

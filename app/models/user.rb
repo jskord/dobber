@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-  has_secure_password
   belongs_to :dog
+  has_secure_password
 end

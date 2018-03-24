@@ -91,7 +91,7 @@ Rails.application.configure do
 
    config.action_mailer.delivery_method = :smtp
    config.action_mailer.smtp_settings = {
-     address: 'smtp.mail.com',
+     address: 'smtp.gmail.com',
      port: 587,
      domain: 'https://vast-peak-96314.herokuapp.com/',
      user_name: 'DobberTheDog1@gmail.com',

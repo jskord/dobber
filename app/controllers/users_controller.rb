@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       dog_id: 1
     )
     if @user.save
-      UserMailer.welcome_email(@user).deliver
+      # UserMailer.welcome_email(@user).deliver
       session[:user_id] = @user.id
       flash[:success] = 'Successfully created account!'
       redirect_to '/'

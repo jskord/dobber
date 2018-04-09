@@ -26,7 +26,7 @@ class DogsController < ApplicationController
     dog.feedings = dog.feedings + 1
     dog.last_feeding = Time.now
     dog.save
-    UserMailer.welcome_email(@user).deliver
+    UserMailer.feeding_email(@user).deliver_later(wait_until: 2.minutes.from_now)
     render 'feeding.html.erb'
   end
 
@@ -36,7 +36,7 @@ class DogsController < ApplicationController
     dog.walks = dog.walks + 1
     dog.last_walk = Time.now
     dog.save
-    UserMailer.welcome_email(@user).deliver
+    UserMailer.walk_email(@user).deliver_later(wait_until: 2.minutes.from_now)
     render 'walk.html.erb'
   end
 
@@ -46,7 +46,7 @@ class DogsController < ApplicationController
     dog.treats = dog.treats + 1
     dog.last_treat = Time.now
     dog.save
-    UserMailer.welcome_email(@user).deliver
+    UserMailer.treat_email(@user).deliver_later(wait_until: 2.minutes.from_now)
     render 'treat.html.erb'
   end
 

@@ -22,11 +22,12 @@ class DogsController < ApplicationController
 
   def feeding
     active_user = current_user
+    @user = current_user
     dog = active_user.dog
     dog.feedings = dog.feedings + 1
     dog.last_feeding = Time.now
     dog.save
-    UserMailer.feeding_email(@user).deliver_later(wait_until: 2.minutes.from_now)
+    UserMailer.feeding_email(@user).deliver
     render 'feeding.html.erb'
   end
 
